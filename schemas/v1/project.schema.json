@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.project-coordination-protocol.org/v1/project.schema.json",
+  "title": "PCP Project",
+  "description": "A project: the top-level unit of coordination. PCP describes its state; PCP does not manage, plan, or execute it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "status"],
+  "properties": {
+    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "description": { "type": "string", "maxLength": 4000 },
+    "status": {
+      "description": "A state from a vocabulary, NOT a state-machine transition. PCP enforces no transitions. Controlled vocabulary: proposed, active, paused, completed, archived, cancelled. Consumers MUST tolerate-and-pass unknown values (forward-compat).",
+      "type": "string",
+      "pattern": "^[a-z][a-z_]*$",
+      "maxLength": 64
+    },
+    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+  }
+}

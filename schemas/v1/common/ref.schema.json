@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.project-coordination-protocol.org/v1/common/ref.schema.json",
+  "title": "PCP Reference",
+  "description": "A semantic link from an Event or entity to a related entity or external resource. The 'rel' vocabulary is CLOSED and contains project-relation semantics only; it never carries routing, delivery, or permission meaning. 'ref' is an opaque descriptive pointer: consumers MUST NOT automatically resolve it as a network address (SSRF risk).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rel", "ref"],
+  "properties": {
+    "rel": {
+      "description": "Closed semantic project-relation vocabulary. Routing/permission verbs (e.g. routes_to, approved_by, delivered_via, assigned_to) are intentionally excluded and MUST NOT appear here.",
+      "type": "string",
+      "enum": [
+        "relates_to",
+        "part_of",
+        "references",
+        "caused_by",
+        "derived_from",
+        "supersedes",
+        "concerns",
+        "blocks"
+      ]
+    },
+    "ref": {
+      "description": "Opaque descriptive pointer (a PCP id or an external reference string). Untrusted; MUST NOT be auto-dereferenced as a URL/network address.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    }
+  }
+}

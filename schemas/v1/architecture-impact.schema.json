@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.project-coordination-protocol.org/v1/architecture-impact.schema.json",
+  "title": "PCP ArchitectureImpact",
+  "description": "A stated assessment of how a change affects a system's architecture. Descriptive only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "subject_ref", "impact_level", "description"],
+  "properties": {
+    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "subject_ref": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "impact_level": {
+      "description": "Assessment vocabulary: none, low, moderate, high, breaking. 'breaking' subsumes any breaking-change flag (no separate boolean). Tolerate-and-pass unknown values.",
+      "type": "string",
+      "pattern": "^[a-z][a-z_]*$",
+      "maxLength": 64
+    },
+    "affected_areas": {
+      "description": "Opaque component labels. Descriptive only; not routing targets.",
+      "type": "array",
+      "maxItems": 50,
+      "items": { "type": "string", "minLength": 1, "maxLength": 128 }
+    },
+    "description": { "type": "string", "minLength": 1, "maxLength": 4000 },
+    "migration_notes": { "type": "string", "maxLength": 4000 },
+    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+  }
+}

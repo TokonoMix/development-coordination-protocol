@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.project-coordination-protocol.org/v1/pcp-message.schema.json",
+  "title": "PCP Message",
+  "description": "The transport-neutral PCP envelope. Carries SEMANTIC fields only (type, version, correlation) and exactly one Event. It carries NO transport, trust, identity, routing, signing, delivery, or retry semantics; those belong to the transport layer (e.g. AgentixMesh). A PcpMessage is independently readable and validatable regardless of how it is transported.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["pcp_version", "message_id", "message_type", "issued_at", "body"],
+  "properties": {
+    "pcp_version": {
+      "description": "Protocol version, major.minor. Consumers MUST parse this as two integers, never as a float (so 1.10 > 1.9).",
+      "type": "string",
+      "pattern": "^1\\.[0-9]{1,4}$",
+      "maxLength": 8
+    },
+    "message_id": {
+      "description": "Stable identity for this PCP message, for AUDIT/CORRELATION only. Uniqueness is producer-asserted and is NOT verifiable by PCP. This is NOT a transport/delivery/idempotency id; deduplication and delivery guarantees belong to the transport layer.",
+      "type": "string",
+      "pattern": "^msg_[A-Za-z0-9._-]+$",
+      "maxLength": 128
+    },
+    "message_type": {
+      "description": "A denormalized convenience copy of '<body.entity_type>.<body.verb>' for human/operator readability. It is NOT protocol authority: the normative source is always the body. Validators MUST check that it equals '<body.entity_type>.<body.verb>'; on conflict the body wins. Transports MUST NOT route, authorize, or trust on this field.",
+      "type": "string",
+      "pattern": "^[a-z][a-z_]*\\.[a-z][a-z_]*$",
+      "maxLength": 64
+    },
+    "issued_at": {
+      "description": "When this PCP message was composed (not when it was delivered).",
+      "$ref": "https://schemas.project-coordination-protocol.org/v1/common/timestamp.schema.json"
+    },
+    "correlation_id": {
+      "description": "Optional SEMANTIC link to a prior PcpMessage.message_id (project-meaning correlation only, never a transport thread id). PCP gives no guarantee that the referenced message exists, was authentic, or came from the same source. Consumers MUST NOT make security-relevant decisions on it alone.",
+      "type": "string",
+      "pattern": "^msg_[A-Za-z0-9._-]+$",
+      "maxLength": 128
+    },
+    "body": {
+      "description": "Exactly one Event.",
+      "$ref": "https://schemas.project-coordination-protocol.org/v1/event.schema.json"
+    },
+    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+  }
+}

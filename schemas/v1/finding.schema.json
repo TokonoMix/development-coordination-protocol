@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.project-coordination-protocol.org/v1/finding.schema.json",
+  "title": "PCP Finding",
+  "description": "A stated finding (issue, observation, risk) about a subject. Descriptive only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "subject_ref", "severity", "title", "status"],
+  "properties": {
+    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "subject_ref": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "severity": {
+      "description": "Ordered vocabulary (low to high): info, low, medium, high, critical. Tolerate-and-pass unknown values.",
+      "type": "string",
+      "pattern": "^[a-z][a-z_]*$",
+      "maxLength": 64
+    },
+    "category": {
+      "description": "Open classification label (e.g. security, performance, correctness, style).",
+      "type": "string",
+      "pattern": "^[a-z0-9_/-]+$",
+      "maxLength": 64
+    },
+    "title": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "description": { "type": "string", "maxLength": 4000 },
+    "location": {
+      "description": "A DESCRIPTIVE locator only. 'path' MUST NOT be passed to filesystem, shell, or URL APIs without independent sanitization; it is not a file-access grant.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": { "type": "string", "maxLength": 512 },
+        "path": { "type": "string", "maxLength": 512 },
+        "line": { "type": "integer", "minimum": 1, "maximum": 9999999 }
+      }
+    },
+    "status": {
+      "description": "Record vocabulary: open, acknowledged, resolved, wont_fix, duplicate. Tolerate-and-pass unknown values.",
+      "type": "string",
+      "pattern": "^[a-z][a-z_]*$",
+      "maxLength": 64
+    },
+    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+  }
+}

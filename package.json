@@ -1,0 +1,16 @@
+{
+  "name": "project-coordination-protocol",
+  "version": "1.0.0-draft",
+  "description": "Reference validator and conformance tooling for the Project Coordination Protocol (PCP). The PCP schemas themselves are language-neutral; this Node package is tooling only, not a runtime dependency of PCP.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "validate": "node reference/validate.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

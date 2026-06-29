@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json",
+  "title": "PCP Extensions",
+  "description": "Namespaced vendor extensions. The strict PCP core never grows new top-level fields; all growth happens here. Every key MUST match '^x-<vendor>$'. Extensions are ALWAYS optional: a conformant consumer MUST be able to ignore any unknown extension (there is no 'must-understand' flag). Producers MUST NOT smuggle transport/trust/identity/routing data through extensions; reserved-looking prefixes (x-auth-*, x-signed-*, x-permission-*, x-agentixmesh-*) carry NO authority and MUST NOT be read as authenticated transport claims.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-[a-z][a-z0-9-]*$": {
+      "type": "object",
+      "maxProperties": 20
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.project-coordination-protocol.org/v1/milestone.schema.json",
+  "title": "PCP Milestone",
+  "description": "A stated milestone within a project. 'target_date' is descriptive intent only: PCP derives no deadline state and performs no scheduling. 'missed' is a reported observation, not a PCP-computed verdict.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "project_id", "name", "status"],
+  "properties": {
+    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "project_id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "description": { "type": "string", "maxLength": 4000 },
+    "status": {
+      "description": "State vocabulary (not transitions): planned, in_progress, reached, missed, cancelled. Tolerate-and-pass unknown values.",
+      "type": "string",
+      "pattern": "^[a-z][a-z_]*$",
+      "maxLength": 64
+    },
+    "target_date": {
+      "description": "Descriptive target date (YYYY-MM-DD). NOT a scheduling instruction; PCP performs no scheduling and derives no deadline state.",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "criteria": {
+      "description": "Descriptive definition-of-done statements.",
+      "type": "array",
+      "maxItems": 50,
+      "items": { "type": "string", "minLength": 1, "maxLength": 512 }
+    },
+    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+  }
+}

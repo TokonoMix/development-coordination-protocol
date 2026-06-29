@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.project-coordination-protocol.org/v1/event.schema.json",
+  "title": "PCP Event",
+  "description": "The canonical change wrapper inside PCP. Every PcpMessage body is exactly one Event describing a change to one entity. PCP communicates project CHANGES, not raw records. An Event carries at least one of: a full 'entity' snapshot, a 'delta', or 'refs'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "entity_type", "verb", "entity_id"],
+  "properties": {
+    "event_id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "entity_type": {
+      "description": "The kind of entity this event concerns. Closed set in v1 (the eight canonical nouns).",
+      "type": "string",
+      "enum": [
+        "project",
+        "task",
+        "dependency",
+        "architecture_impact",
+        "decision",
+        "review_request",
+        "finding",
+        "milestone"
+      ]
+    },
+    "verb": {
+      "description": "The lifecycle verb: an assertion of recorded change, NOT a transition authorization. Open string with a controlled vocabulary (created, updated, status_changed, snapshot, deleted, plus entity-specific verbs documented in SPEC.md). Consumers MUST tolerate-and-pass unknown verbs.",
+      "type": "string",
+      "pattern": "^[a-z][a-z_]*$",
+      "maxLength": 64
+    },
+    "entity_id": {
+      "description": "Id of the affected entity. Self-asserted: PCP gives NO referential-integrity guarantee and ids are NOT guaranteed globally unique across independent producers. Scoping is the consumer's responsibility via transport context, not via this field.",
+      "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json"
+    },
+    "project_id": {
+      "description": "Optional, untrusted scope hint indicating the project the entity belongs to.",
+      "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json"
+    },
+    "occurred_at": {
+      "description": "When the change actually happened (as opposed to PcpMessage.issued_at = when the message was composed).",
+      "$ref": "https://schemas.project-coordination-protocol.org/v1/common/timestamp.schema.json"
+    },
+    "attributed_to": {
+      "description": "Free-form opaque provenance label of who/what is said to have made the change. UNTRUSTED, non-authoritative, NOT an identity assertion, grants nothing. MUST NOT carry a 'scheme:value' identity structure.",
+      "type": "string",
+      "maxLength": 256
+    },
+    "entity": {
+      "description": "Optional full snapshot of the affected entity. When present, it is validated against the schema for 'entity_type'.",
+      "type": "object"
+    },
+    "delta": {
+      "description": "Optional change set: a map of field name to { from?, to }. Leaf values are scalar or null; changes to array/object fields are communicated via a snapshot instead. A delta is a CLAIM about change, not a transaction log: no ordering or causality is guaranteed between deltas.",
+      "type": "object",
+      "maxProperties": 64,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["to"],
+        "properties": {
+          "from": { "type": ["string", "number", "boolean", "null"] },
+          "to": { "type": ["string", "number", "boolean", "null"] }
+        }
+      }
+    },
+    "refs": {
+      "description": "Optional semantic links to related entities or external references.",
+      "type": "array",
+      "maxItems": 100,
+      "items": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/ref.schema.json" }
+    },
+    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+  },
+  "anyOf": [
+    { "required": ["entity"] },
+    { "required": ["delta"] },
+    { "required": ["refs"] }
+  ],
+  "allOf": [
+    {
+      "if": { "required": ["entity"], "properties": { "entity_type": { "const": "project" } } },
+      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/project.schema.json" } } }
+    },
+    {
+      "if": { "required": ["entity"], "properties": { "entity_type": { "const": "task" } } },
+      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/task.schema.json" } } }
+    },
+    {
+      "if": { "required": ["entity"], "properties": { "entity_type": { "const": "dependency" } } },
+      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/dependency.schema.json" } } }
+    },
+    {
+      "if": { "required": ["entity"], "properties": { "entity_type": { "const": "architecture_impact" } } },
+      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/architecture-impact.schema.json" } } }
+    },
+    {
+      "if": { "required": ["entity"], "properties": { "entity_type": { "const": "decision" } } },
+      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/decision.schema.json" } } }
+    },
+    {
+      "if": { "required": ["entity"], "properties": { "entity_type": { "const": "review_request" } } },
+      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/review-request.schema.json" } } }
+    },
+    {
+      "if": { "required": ["entity"], "properties": { "entity_type": { "const": "finding" } } },
+      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/finding.schema.json" } } }
+    },
+    {
+      "if": { "required": ["entity"], "properties": { "entity_type": { "const": "milestone" } } },
+      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/milestone.schema.json" } } }
+    }
+  ]
+}
