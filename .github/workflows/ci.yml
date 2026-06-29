@@ -1,0 +1,23 @@
+name: CI
+
+# Repository hygiene only: validates schemas, examples, and the conformance
+# corpus. This is NOT a PCP protocol feature or a product integration.
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+      - name: Validate examples
+        run: node reference/validate.mjs examples/v1/*.json
+      - name: Run test suite (examples + schema-lint + conformance)
+        run: npm test
