@@ -1,0 +1,15 @@
+Project Coordination Protocol (PCP)
+Copyright 2026 The Project Coordination Protocol (PCP) authors
+
+This product includes software developed by
+The Project Coordination Protocol (PCP) authors.
+
+Licensing summary (see LICENSE and LICENSE-docs for the full terms):
+
+  - Source code, JSON schemas, the reference validator, examples, the
+    conformance corpus, and tests are licensed under the Apache License,
+    Version 2.0 (see LICENSE).
+
+  - The specification text (SPEC.md) and the documentation under docs/ are
+    licensed under the Creative Commons Attribution 4.0 International License,
+    CC BY 4.0 (see LICENSE-docs).
