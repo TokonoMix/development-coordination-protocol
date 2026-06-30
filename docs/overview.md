@@ -17,7 +17,7 @@ for the payload, independent of how it is carried.
 ## The shape of everything
 
 ```
-PcpMessage (envelope: version, message_id, message_type, issued_at, correlation_id)
+PcpMessage (envelope: pcp_version, message_id, message_type, issued_at, correlation_id)
   └── body: Event (what changed)
         ├── entity_type + verb + entity_id     (which thing, what change)
         └── one or more of:
