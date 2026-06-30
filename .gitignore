@@ -2,3 +2,8 @@ node_modules/
 npm-debug.log*
 .DS_Store
 *.log
+
+# Local agent/ops context — internal only, never published to the public spec repo
+CLAUDE.md
+TAKEOVER.md
+.remember/
