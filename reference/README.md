@@ -1,8 +1,8 @@
-# PCP Reference Validator
+# DCP Reference Validator
 
 A small Node + Ajv (JSON Schema 2020-12) reference implementation. **Tooling
-only** — the PCP schemas are language-neutral; this validator is a convenience,
-not a runtime dependency of PCP, and not the definition of conformance (that is
+only** — the DCP schemas are language-neutral; this validator is a convenience,
+not a runtime dependency of DCP, and not the definition of conformance (that is
 `../conformance/`).
 
 ## Install
@@ -14,7 +14,7 @@ npm install        # from the repository root
 ## CLI
 
 ```bash
-# Validate one or more files as full PcpMessages (schema + message_type rule):
+# Validate one or more files as full DcpMessages (schema + message_type rule):
 node reference/validate.mjs examples/v1/task.completed.json
 
 # Validate a bare entity snapshot against a specific schema:

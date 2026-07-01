@@ -1,15 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/dependency.schema.json",
-  "title": "PCP Dependency",
-  "description": "The canonical representation of a stated relationship between two entities. A Dependency DESCRIBES a relationship; PCP performs, enforces, orders, or schedules nothing on the basis of it. A 'blocks' dependency is a statement that one item is considered a prerequisite for another, not an instruction to a scheduler.",
+  "$id": "https://schemas.devcopro.org/v1/dependency.schema.json",
+  "title": "DCP Dependency",
+  "description": "The canonical representation of a stated relationship between two entities. A Dependency DESCRIBES a relationship; DCP performs, enforces, orders, or schedules nothing on the basis of it. A 'blocks' dependency is a statement that one item is considered a prerequisite for another, not an instruction to a scheduler.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "from_id", "to_id", "dependency_type"],
   "properties": {
-    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
-    "from_id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
-    "to_id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
+    "from_id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
+    "to_id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "dependency_type": {
       "description": "Relationship vocabulary: blocks, requires, relates_to, duplicates, supersedes. Tolerate-and-pass unknown values.",
       "type": "string",
@@ -17,6 +17,6 @@
       "maxLength": 64
     },
     "description": { "type": "string", "maxLength": 4000 },
-    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+    "extensions": { "$ref": "https://schemas.devcopro.org/v1/common/extensions.schema.json" }
   }
 }

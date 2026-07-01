@@ -1,7 +1,7 @@
-# PCP Conformance Corpus
+# DCP Conformance Corpus
 
 A language-neutral set of fixtures that lets **any** implementation, in any
-language, self-certify against PCP v1. This corpus — not the Node validator — is
+language, self-certify against DCP v1. This corpus — not the Node validator — is
 the practical definition of conformance.
 
 ## Structure
@@ -9,7 +9,7 @@ the practical definition of conformance.
 - `valid/` — messages that a conformant validator MUST **accept**.
 - `invalid/` — messages that a conformant validator MUST **reject**.
 - `manifest.json` — the index: each case lists its `file`, the `schema` to
-  validate against (`pcp-message`), the expected outcome (`accept` / `reject`),
+  validate against (`dcp-message`), the expected outcome (`accept` / `reject`),
   and a human-readable `note` explaining what it tests.
 
 ## How to run it

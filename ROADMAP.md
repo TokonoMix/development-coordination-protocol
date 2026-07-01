@@ -1,21 +1,21 @@
 # Roadmap
 
-PCP evolves conservatively. The protocol's value is stability and a sharp scope,
+DCP evolves conservatively. The protocol's value is stability and a sharp scope,
 so the roadmap favours *not* growing the core.
 
 ## Scope (a fixed given)
 
-PCP is intentionally scoped to **project coordination**. It may, in the future,
-become **one protocol in a broader family of Agentix protocols** — but PCP itself
+DCP is intentionally scoped to **project coordination**. It may, in the future,
+become **one protocol in a broader family of Agentix protocols** — but DCP itself
 will remain focused on project coordination. Other concerns (transport, identity,
 trust, routing, planning, orchestration, execution) are explicitly *other
-protocols / other layers*, never folded into PCP.
+protocols / other layers*, never folded into DCP.
 
 ## v1 (current)
 
 Scope deliberately limited to the structure of project communication:
 
-- The `PcpMessage` envelope and the `Event` change-wrapper.
+- The `DcpMessage` envelope and the `Event` change-wrapper.
 - Eight entities: Project, Task, Dependency, ArchitectureImpact, Decision,
   ReviewRequest, Finding, Milestone.
 - Identifiers, controlled vocabularies, the namespaced `extensions` model.

@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/architecture-impact.schema.json",
-  "title": "PCP ArchitectureImpact",
+  "$id": "https://schemas.devcopro.org/v1/architecture-impact.schema.json",
+  "title": "DCP ArchitectureImpact",
   "description": "A stated assessment of how a change affects a system's architecture. Descriptive only.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "subject_ref", "impact_level", "description"],
   "properties": {
-    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
-    "subject_ref": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
+    "subject_ref": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "impact_level": {
       "description": "Assessment vocabulary: none, low, moderate, high, breaking. 'breaking' subsumes any breaking-change flag (no separate boolean). Tolerate-and-pass unknown values.",
       "type": "string",
@@ -23,6 +23,6 @@
     },
     "description": { "type": "string", "minLength": 1, "maxLength": 4000 },
     "migration_notes": { "type": "string", "maxLength": 4000 },
-    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+    "extensions": { "$ref": "https://schemas.devcopro.org/v1/common/extensions.schema.json" }
   }
 }

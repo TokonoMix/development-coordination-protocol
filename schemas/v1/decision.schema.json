@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/decision.schema.json",
-  "title": "PCP Decision",
-  "description": "An ADR-style record of a decision that was made. A Decision RECORDS an outcome; PCP grants no authority and gates nothing. status 'accepted' is a record that an acceptance occurred, not an authorization token.",
+  "$id": "https://schemas.devcopro.org/v1/decision.schema.json",
+  "title": "DCP Decision",
+  "description": "An ADR-style record of a decision that was made. A Decision RECORDS an outcome; DCP grants no authority and gates nothing. status 'accepted' is a record that an acceptance occurred, not an authorization token.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "title", "decision", "status"],
   "properties": {
-    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "title": { "type": "string", "minLength": 1, "maxLength": 256 },
     "context": { "type": "string", "maxLength": 4000 },
     "decision": { "type": "string", "minLength": 1, "maxLength": 4000 },
@@ -31,12 +31,12 @@
       }
     },
     "consequences": { "type": "string", "maxLength": 4000 },
-    "supersedes": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "supersedes": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "refs": {
       "type": "array",
       "maxItems": 100,
-      "items": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/ref.schema.json" }
+      "items": { "$ref": "https://schemas.devcopro.org/v1/common/ref.schema.json" }
     },
-    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+    "extensions": { "$ref": "https://schemas.devcopro.org/v1/common/extensions.schema.json" }
   }
 }

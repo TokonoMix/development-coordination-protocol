@@ -1,4 +1,4 @@
-// Structural invariants every PCP v1 schema must hold, plus a functional check
+// Structural invariants every DCP v1 schema must hold, plus a functional check
 // that the strict-core extension rule is actually enforced.
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -12,7 +12,7 @@ import { buildValidator, validateMessage } from "../reference/validate.mjs";
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SCHEMA_DIR = join(HERE, "..", "schemas", "v1");
 const DRAFT = "https://json-schema.org/draft/2020-12/schema";
-const BASE = "https://schemas.project-coordination-protocol.org/v1/";
+const BASE = "https://schemas.devcopro.org/v1/";
 
 function allSchemaFiles(dir) {
   const out = [];
@@ -36,7 +36,7 @@ for (const file of files) {
 
 // The strict-core object schemas must close additionalProperties.
 const STRICT_CORE = [
-  "pcp-message", "event",
+  "dcp-message", "event",
   "project", "task", "dependency", "architecture-impact",
   "decision", "review-request", "finding", "milestone",
 ];
@@ -51,7 +51,7 @@ for (const name of STRICT_CORE) {
 test("extensions: a non-x- key is rejected", () => {
   const ajv = buildValidator();
   const msg = {
-    pcp_version: "1.0",
+    dcp_version: "1.0",
     message_id: "msg_lint01",
     message_type: "task.created",
     issued_at: "2026-06-29T10:00:00Z",
@@ -85,7 +85,7 @@ test("every schema strict-compiles (no unknown/typo constraint keywords)", () =>
 test("refs: a routing/permission rel is rejected", () => {
   const ajv = buildValidator();
   const msg = {
-    pcp_version: "1.0",
+    dcp_version: "1.0",
     message_id: "msg_lint02",
     message_type: "task.updated",
     issued_at: "2026-06-29T10:00:00Z",

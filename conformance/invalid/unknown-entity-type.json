@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_uet0001",
   "message_type": "epic.created",
   "issued_at": "2026-06-29T10:00:00Z",

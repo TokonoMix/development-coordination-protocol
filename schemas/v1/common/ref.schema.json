@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/common/ref.schema.json",
-  "title": "PCP Reference",
+  "$id": "https://schemas.devcopro.org/v1/common/ref.schema.json",
+  "title": "DCP Reference",
   "description": "A semantic link from an Event or entity to a related entity or external resource. The 'rel' vocabulary is CLOSED and contains project-relation semantics only; it never carries routing, delivery, or permission meaning. 'ref' is an opaque descriptive pointer: consumers MUST NOT automatically resolve it as a network address (SSRF risk).",
   "type": "object",
   "additionalProperties": false,
@@ -22,7 +22,7 @@
       ]
     },
     "ref": {
-      "description": "Opaque descriptive pointer (a PCP id or an external reference string). Untrusted; MUST NOT be auto-dereferenced as a URL/network address.",
+      "description": "Opaque descriptive pointer (a DCP id or an external reference string). Untrusted; MUST NOT be auto-dereferenced as a URL/network address.",
       "type": "string",
       "minLength": 1,
       "maxLength": 512

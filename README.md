@@ -1,32 +1,32 @@
-# Project Coordination Protocol (PCP)
+# Development Coordination Protocol (DCP)
 
-**Project Coordination Protocol (PCP) is an open, vendor-neutral protocol initiated by the TokonoMix project** — a machine-readable semantic protocol for exchanging project-coordination information between AI agents and humans.
+**Development Coordination Protocol (DCP) is an open, vendor-neutral protocol initiated by the TokonoMix project** — a machine-readable semantic protocol for exchanging project-coordination information between AI agents and humans.
 
 > **Status: Draft — v1.0.0-draft (pre-release).** This is an early, pre-release draft published for review and feedback. It is **not** a finalized standard; schemas and vocabularies may change before the v1.0.0 freeze.
 
 It defines *only the structure of project communication* — project status, tasks, dependencies, architecture impact, decisions, review requests, findings, milestones, and the events that record their changes — as JSON Schemas.
 
-> **PCP carries no trust. PCP describes project-state changes only.**
+> **DCP carries no trust. DCP describes project-state changes only.**
 
-PCP **never** decides, executes, plans, schedules, orchestrates, routes, or authenticates. Think HTTP over TCP:
+DCP **never** decides, executes, plans, schedules, orchestrates, routes, or authenticates. Think HTTP over TCP:
 
 ```
   ┌─────────────────────────────────────────────┐
-  │  PCP            semantics / validation / corr.│  ← this project
+  │  DCP            semantics / validation / corr.│  ← this project
   ├─────────────────────────────────────────────┤
   │  Transport      transport / trust / routing   │  ← e.g. AgentixMesh (separate)
   └─────────────────────────────────────────────┘
 ```
 
-A PCP message travels *inside* a transport envelope but is independent of it and independently readable and validatable. Moving between transports is a **transport swap, not a rewrite**.
+A DCP message travels *inside* a transport envelope but is independent of it and independently readable and validatable. Moving between transports is a **transport swap, not a rewrite**.
 
 ## What's in a message
 
-Every PCP message is a thin envelope carrying exactly one **Event** — a recorded change to one entity:
+Every DCP message is a thin envelope carrying exactly one **Event** — a recorded change to one entity:
 
 ```json
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_01HZ0TASKDONE0001",
   "message_type": "task.completed",
   "issued_at": "2026-06-29T12:30:00Z",
@@ -56,7 +56,7 @@ node reference/validate.mjs examples/v1/task.completed.json   # → PASS
 npm test                                                       # examples + conformance + schema-lint
 ```
 
-The schemas are language-neutral **JSON Schema 2020-12**. The Node/Ajv validator under `reference/` is one reference implementation; any language can validate PCP. The `conformance/` corpus lets any implementation self-certify.
+The schemas are language-neutral **JSON Schema 2020-12**. The Node/Ajv validator under `reference/` is one reference implementation; any language can validate DCP. The `conformance/` corpus lets any implementation self-certify.
 
 ## Repository layout
 
@@ -69,14 +69,14 @@ The schemas are language-neutral **JSON Schema 2020-12**. The Node/Ajv validator
 | `reference/` | Ajv reference validator (tooling). |
 | `docs/` | Design principles, SRP boundaries, versioning, extensions, relationships. |
 | `tests/` | Schema-lint, example validation, conformance runner. |
-| `SECURITY.md` | The carry-no-trust security model (read before consuming PCP). |
+| `SECURITY.md` | The carry-no-trust security model (read before consuming DCP). |
 | `GOVERNANCE.md` · `CONTRIBUTING.md` | How the standard is governed and how to contribute. |
 
 ## Scope
 
-PCP is intentionally scoped to **project coordination**. It may, in the future, become one protocol in a broader family of Agentix protocols — but PCP itself will remain focused on project coordination.
+DCP is intentionally scoped to **project coordination**. It may, in the future, become one protocol in a broader family of Agentix protocols — but DCP itself will remain focused on project coordination.
 
-PCP has **no dependency** on any other system. AgentixMesh is *one possible* transport; Tokonomix components *may* produce PCP events; PCP knows about neither. See `docs/relationship-to-agentixmesh-and-tokonomix.md`.
+DCP has **no dependency** on any other system. AgentixMesh is *one possible* transport; Tokonomix components *may* produce DCP events; DCP knows about neither. See `docs/relationship-to-agentixmesh-and-tokonomix.md`.
 
 ## License
 

@@ -1,28 +1,28 @@
 # Governance
 
-This document describes **who decides** what PCP is, and **how** changes to the
+This document describes **who decides** what DCP is, and **how** changes to the
 protocol are proposed, reviewed, and recorded. `CONTRIBUTING.md` covers *how to
 contribute*; this document covers *who governs*.
 
 ## Stewardship
 
-PCP was **initiated by the TokonoMix project** and is currently hosted under the
-TokonoMix GitHub organization. This is stewardship, not coupling: PCP is
+DCP was **initiated by the TokonoMix project** and is currently hosted under the
+TokonoMix GitHub organization. This is stewardship, not coupling: DCP is
 vendor-neutral and has **no dependency** on TokonoMix, AgentixMesh, or any other
 system, and the specification will never *require* them. As adoption grows,
-stewardship may move to a neutral organization (e.g. a dedicated `pcp-spec`
+stewardship may move to a neutral organization (e.g. a dedicated `dcp-spec`
 organization); GitHub redirects keep old repository URLs working, so such a move
-is non-breaking. Whoever stewards PCP, the single-responsibility and
+is non-breaking. Whoever stewards DCP, the single-responsibility and
 vendor-neutrality rules below remain binding.
 
 ## Principles
 
-1. **Single responsibility is non-negotiable.** PCP defines only the structure of
+1. **Single responsibility is non-negotiable.** DCP defines only the structure of
    project communication. Any proposal that adds transport, trust, identity,
    routing, permissions, planning, scheduling, workflow-engine, orchestration, or
    execution semantics is out of scope by definition and will be declined,
    regardless of merit, because it belongs to another layer.
-2. **Vendor-neutral.** PCP must remain usable with no dependency on any specific
+2. **Vendor-neutral.** DCP must remain usable with no dependency on any specific
    vendor, transport, or product. Decisions are made in the interest of the
    protocol as an open standard, not any one implementation.
 3. **Backwards compatibility is a promise.** Within a major version, changes are

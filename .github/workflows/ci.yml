@@ -1,7 +1,7 @@
 name: CI
 
 # Repository hygiene only: validates schemas, examples, and the conformance
-# corpus. This is NOT a PCP protocol feature or a product integration.
+# corpus. This is NOT a DCP protocol feature or a product integration.
 
 on:
   push:

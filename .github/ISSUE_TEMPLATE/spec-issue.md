@@ -15,5 +15,5 @@ The error, ambiguity, or inconsistency. Quote the exact text if helpful.
 What it should say or do instead.
 
 ## Minimal example (if applicable)
-A small PcpMessage that demonstrates the problem (and whether it is wrongly
+A small DcpMessage that demonstrates the problem (and whether it is wrongly
 accepted or wrongly rejected by `reference/validate.mjs`).

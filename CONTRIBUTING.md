@@ -1,30 +1,30 @@
-# Contributing to PCP
+# Contributing to DCP
 
-Thank you for helping improve the Project Coordination Protocol (PCP). PCP is a
+Thank you for helping improve the Development Coordination Protocol (DCP). DCP is a
 vendor-neutral, machine-readable **semantic** protocol: it defines **only the
 structure of project communication**. Please read this guide and `SPEC.md`
 before opening a pull request.
 
 ## The prime directive
 
-> **PCP carries no trust. PCP describes project-state changes only.**
+> **DCP carries no trust. DCP describes project-state changes only.**
 
-PCP is a *semantic* layer. Transport, trust, identity, permissions, routing,
+DCP is a *semantic* layer. Transport, trust, identity, permissions, routing,
 delivery/retry, planning, scheduling, workflow/state-machine enforcement,
 approval, orchestration, and execution belong to **other layers** (for example a
-transport such as AgentixMesh) — never to PCP.
+transport such as AgentixMesh) — never to DCP.
 
 Pull requests that add transport, trust, identity, routing, permissions,
 planning, scheduling, workflow-engine, orchestration, or execution semantics
 **will be rejected on single-responsibility grounds.** Every new field MUST be
-justifiable as *descriptive project-coordination metadata*: PCP reports that
+justifiable as *descriptive project-coordination metadata*: DCP reports that
 something is so; it never acts on it.
 
 ### Scope (a fixed given)
 
-PCP is intentionally scoped to **project coordination**. It may, in the future,
-become one protocol in a broader family of Agentix protocols — but PCP itself
-will remain focused on project coordination. Proposals to broaden PCP beyond
+DCP is intentionally scoped to **project coordination**. It may, in the future,
+become one protocol in a broader family of Agentix protocols — but DCP itself
+will remain focused on project coordination. Proposals to broaden DCP beyond
 project coordination are out of scope for this repository.
 
 ## Proposing a change
@@ -53,13 +53,13 @@ project coordination are out of scope for this repository.
 
 ```bash
 npm install                              # installs Ajv (tooling only)
-node reference/validate.mjs <file.json>  # validate a PcpMessage
+node reference/validate.mjs <file.json>  # validate a DcpMessage
 node reference/validate.mjs --schema task <file.json>   # validate a bare entity
 npm test                                 # runs the schema/example/conformance tests
 ```
 
 The schemas are language-neutral JSON Schema 2020-12; the Node/Ajv validator is
-a reference implementation and tooling only — not a runtime dependency of PCP.
+a reference implementation and tooling only — not a runtime dependency of DCP.
 
 ## Every schema change needs proof
 

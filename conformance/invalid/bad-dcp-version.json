@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1",
+  "dcp_version": "1",
   "message_id": "msg_ver0001",
   "message_type": "task.created",
   "issued_at": "2026-06-29T10:00:00Z",

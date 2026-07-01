@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/task.schema.json",
-  "title": "PCP Task",
+  "$id": "https://schemas.devcopro.org/v1/task.schema.json",
+  "title": "DCP Task",
   "description": "A unit of work within a project. Dependencies between tasks are expressed exclusively via the canonical Dependency entity, never inline on a Task.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "project_id", "title", "status"],
   "properties": {
-    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
-    "project_id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
+    "project_id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "title": { "type": "string", "minLength": 1, "maxLength": 256 },
     "description": { "type": "string", "maxLength": 4000 },
     "status": {
@@ -18,17 +18,17 @@
       "maxLength": 64
     },
     "priority": {
-      "description": "Descriptive label only; NOT a scheduler directive. PCP defines no behaviour over it. Controlled vocabulary: low, normal, high, critical.",
+      "description": "Descriptive label only; NOT a scheduler directive. DCP defines no behaviour over it. Controlled vocabulary: low, normal, high, critical.",
       "type": "string",
       "pattern": "^[a-z][a-z_]*$",
       "maxLength": 64
     },
-    "milestone_id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "milestone_id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "responsible_party": {
       "description": "Descriptive, UNTRUSTED project metadata. Conveys NO identity, authority, obligation, or authorization. Free-form opaque label; never an authenticated principal.",
       "type": "string",
       "maxLength": 256
     },
-    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+    "extensions": { "$ref": "https://schemas.devcopro.org/v1/common/extensions.schema.json" }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_01HZ0DECISION0001",
   "message_type": "decision.recorded",
   "issued_at": "2026-06-29T10:12:00Z",
@@ -8,24 +8,24 @@
     "entity_type": "decision",
     "verb": "recorded",
     "entity_id": "decision_thin_envelope",
-    "attributed_to": "pcp-working-group",
+    "attributed_to": "dcp-working-group",
     "entity": {
       "id": "decision_thin_envelope",
-      "title": "Use a thin, semantics-only PCP envelope",
-      "context": "PCP must remain a pure semantic layer, fully separated from the transport layer.",
-      "decision": "The PcpMessage envelope carries only semantic fields (version, ids, type, correlation) and exactly one Event. Transport, trust, identity, and routing remain entirely in the transport layer.",
+      "title": "Use a thin, semantics-only DCP envelope",
+      "context": "DCP must remain a pure semantic layer, fully separated from the transport layer.",
+      "decision": "The DcpMessage envelope carries only semantic fields (version, ids, type, correlation) and exactly one Event. Transport, trust, identity, and routing remain entirely in the transport layer.",
       "status": "accepted",
       "alternatives": [
         {
           "summary": "Entity-only messages with no envelope",
-          "rejected_reason": "Two parties could not interoperate on PCP alone without first agreeing a transport."
+          "rejected_reason": "Two parties could not interoperate on DCP alone without first agreeing a transport."
         },
         {
           "summary": "A full REST-style hypermedia document model",
           "rejected_reason": "Heavier than v1 needs and drifts toward an API contract rather than a communication protocol."
         }
       ],
-      "consequences": "PCP stays independently readable and validatable; overlap with transport ids is allowed because the purpose differs."
+      "consequences": "DCP stays independently readable and validatable; overlap with transport ids is allowed because the purpose differs."
     }
   }
 }

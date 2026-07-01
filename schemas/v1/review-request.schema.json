@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/review-request.schema.json",
-  "title": "PCP ReviewRequest",
-  "description": "A record that a review was requested and, over time, its outcome. PCP grants no approval authority and gates nothing: a status of 'approved' is a record that an approval event occurred, NOT an authorization to proceed. A separate system decides what to do with that record.",
+  "$id": "https://schemas.devcopro.org/v1/review-request.schema.json",
+  "title": "DCP ReviewRequest",
+  "description": "A record that a review was requested and, over time, its outcome. DCP grants no approval authority and gates nothing: a status of 'approved' is a record that an approval event occurred, NOT an authorization to proceed. A separate system decides what to do with that record.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "subject_ref", "status"],
   "properties": {
-    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
-    "subject_ref": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
+    "subject_ref": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "review_type": {
       "description": "Vocabulary: code, architecture, security, design, general. Tolerate-and-pass unknown values.",
       "type": "string",
@@ -31,8 +31,8 @@
     "finding_ids": {
       "type": "array",
       "maxItems": 200,
-      "items": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" }
+      "items": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" }
     },
-    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+    "extensions": { "$ref": "https://schemas.devcopro.org/v1/common/extensions.schema.json" }
   }
 }

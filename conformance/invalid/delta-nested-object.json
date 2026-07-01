@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_dn0001",
   "message_type": "task.status_changed",
   "issued_at": "2026-06-29T10:00:00Z",

@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_01HZ0PROJECT0001",
   "message_type": "project.snapshot",
   "issued_at": "2026-06-29T10:00:00Z",
@@ -7,12 +7,12 @@
     "event_id": "evt_01HZ0PROJECT0001",
     "entity_type": "project",
     "verb": "snapshot",
-    "entity_id": "project_pcp",
+    "entity_id": "project_dcp",
     "occurred_at": "2026-06-29T09:59:00Z",
-    "attributed_to": "pcp-working-group",
+    "attributed_to": "dcp-working-group",
     "entity": {
-      "id": "project_pcp",
-      "name": "Project Coordination Protocol",
+      "id": "project_dcp",
+      "name": "Development Coordination Protocol",
       "description": "An open, vendor-neutral semantic protocol for exchanging project-coordination information between agents and humans.",
       "status": "active"
     }

@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_01HZ0DEPCREATED01",
   "message_type": "dependency.created",
   "issued_at": "2026-06-29T10:05:00Z",

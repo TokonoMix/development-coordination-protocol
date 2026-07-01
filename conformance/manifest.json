@@ -1,125 +1,125 @@
 {
-  "$comment": "PCP v1 conformance corpus. Any implementation MUST accept every 'accept' case and reject every 'reject' case when validating as a PcpMessage (schema + the message_type consistency rule).",
-  "pcp_version": "1.0",
-  "schemaBase": "https://schemas.project-coordination-protocol.org/v1/",
+  "$comment": "DCP v1 conformance corpus. Any implementation MUST accept every 'accept' case and reject every 'reject' case when validating as a DcpMessage (schema + the message_type consistency rule).",
+  "dcp_version": "1.0",
+  "schemaBase": "https://schemas.devcopro.org/v1/",
   "cases": [
     {
       "file": "valid/minimal-task-created.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "accept",
       "note": "Only required fields present."
     },
     {
       "file": "valid/event-only-refs.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "accept",
       "note": "Event payload satisfied by refs alone."
     },
     {
       "file": "valid/event-only-delta.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "accept",
       "note": "Event payload satisfied by delta alone."
     },
     {
       "file": "valid/unknown-verb-tolerated.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "accept",
       "note": "Unknown verb 'archived' must be tolerated (forward-compat)."
     },
     {
       "file": "valid/unknown-status-tolerated.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "accept",
       "note": "Unknown status 'on_hold' must be tolerated (forward-compat)."
     },
     {
       "file": "valid/extensions-namespaced.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "accept",
       "note": "Namespaced x- extensions on envelope and entity."
     },
     {
       "file": "invalid/envelope-extra-field.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "Unknown top-level field violates additionalProperties:false on the envelope core."
     },
     {
       "file": "invalid/envelope-missing-message-id.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "message_id is required."
     },
     {
       "file": "invalid/message-type-mismatch.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "message_type must equal '<entity_type>.<verb>'."
     },
     {
       "file": "invalid/event-empty-payload.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "Event must carry at least one of entity/delta/refs."
     },
     {
       "file": "invalid/bad-id-pattern.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "entity_id must match the opaque id pattern."
     },
     {
       "file": "invalid/non-namespaced-extension.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "Extension keys must match '^x-<vendor>$'."
     },
     {
       "file": "invalid/bad-extension-key.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "Extension key must be lowercase 'x-...'."
     },
     {
-      "file": "invalid/bad-pcp-version.json",
-      "schema": "pcp-message",
+      "file": "invalid/bad-dcp-version.json",
+      "schema": "dcp-message",
       "expect": "reject",
-      "note": "pcp_version must be 'major.minor'."
+      "note": "dcp_version must be 'major.minor'."
     },
     {
       "file": "invalid/ref-forbidden-rel.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "rel vocabulary is closed; routing/permission verbs like 'approved_by' are forbidden (SRP guard)."
     },
     {
       "file": "invalid/delta-nested-object.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "delta leaf values must be scalar or null; nested objects are rejected."
     },
     {
       "file": "invalid/timestamp-with-offset.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "Timestamps must be UTC with a trailing 'Z'."
     },
     {
       "file": "invalid/entity-shape-violation.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "A task snapshot missing 'title' must be rejected (conditional entity dispatch)."
     },
     {
       "file": "invalid/unknown-entity-type.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "entity_type is a closed enum of the eight v1 nouns."
     },
     {
       "file": "invalid/message-type-no-dot.json",
-      "schema": "pcp-message",
+      "schema": "dcp-message",
       "expect": "reject",
       "note": "message_type must be '<entity>.<verb>'."
     }

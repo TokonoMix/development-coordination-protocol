@@ -6,14 +6,22 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **Renamed** from "Project Coordination Protocol (PCP)" to **Development Coordination
+  Protocol (DCP)** while still in draft, before the v1.0.0 freeze. This renames the
+  wire-level identifiers (`DcpMessage`, `dcp_version`), the schema `$id` namespace
+  (now `https://schemas.devcopro.org/v1/…`), and the repository. The protocol was briefly
+  published under the PCP name on 2026-06-29; the old GitHub URL redirects.
+
 ## [1.0.0-draft] — 2026-06-29
 
-Initial draft of the Project Coordination Protocol.
+Initial draft of the Development Coordination Protocol.
 
 ### Added
 
 - Normative specification (`SPEC.md`).
-- `PcpMessage` envelope and `Event` change-wrapper schemas.
+- `DcpMessage` envelope and `Event` change-wrapper schemas.
 - Eight entity schemas: Project, Task, Dependency, ArchitectureImpact, Decision,
   ReviewRequest, Finding, Milestone.
 - Common schemas: identifier, UTC timestamp, reference, extensions.
@@ -29,5 +37,5 @@ Initial draft of the Project Coordination Protocol.
 
 ### Notes
 
-- The schema `$id` host `schemas.project-coordination-protocol.org` is a
+- The schema `$id` host `schemas.devcopro.org` is a
   placeholder pending the v1.0 freeze; it implies no domain ownership.

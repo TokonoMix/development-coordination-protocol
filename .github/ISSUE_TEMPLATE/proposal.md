@@ -1,11 +1,11 @@
 ---
 name: Change proposal (RFC-style)
-about: Propose a change to PCP schemas, vocabularies, or normative text
+about: Propose a change to DCP schemas, vocabularies, or normative text
 title: "[Proposal] "
 labels: proposal
 ---
 
-> Before filing: PCP defines ONLY the structure of project communication. It does
+> Before filing: DCP defines ONLY the structure of project communication. It does
 > not do transport, trust, identity, routing, permissions, planning, scheduling,
 > workflow enforcement, orchestration, or execution. Proposals adding those are
 > out of scope (see GOVERNANCE.md).
@@ -18,7 +18,7 @@ matters.
 The concrete change (fields, vocabulary, or normative text).
 
 ## Single-responsibility check
-Confirm the change is *descriptive project-coordination metadata* — PCP reports
+Confirm the change is *descriptive project-coordination metadata* — DCP reports
 it, never acts on it. Note any field that could be mistaken for
 transport/trust/planning/execution and how the wording prevents that.
 

@@ -1,7 +1,7 @@
 {
-  "name": "project-coordination-protocol",
+  "name": "development-coordination-protocol",
   "version": "1.0.0-draft",
-  "description": "Reference validator and conformance tooling for the Project Coordination Protocol (PCP). The PCP schemas themselves are language-neutral; this Node package is tooling only, not a runtime dependency of PCP.",
+  "description": "Reference validator and conformance tooling for the Development Coordination Protocol (DCP). The DCP schemas themselves are language-neutral; this Node package is tooling only, not a runtime dependency of DCP.",
   "type": "module",
   "license": "Apache-2.0",
   "private": true,

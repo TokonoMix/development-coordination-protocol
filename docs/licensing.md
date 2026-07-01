@@ -1,6 +1,6 @@
 # Licensing
 
-PCP is dual-licensed so that the *implementation* and the *specification text*
+DCP is dual-licensed so that the *implementation* and the *specification text*
 each carry the license best suited to it.
 
 | What | License | File |
@@ -19,12 +19,12 @@ See `NOTICE` for the summary that ships with the project.
   republished freely, with attribution — the right default for an open standard's
   text.
 
-## Using PCP in your project
+## Using DCP in your project
 
-- You may implement PCP, ship the schemas, and build products on it under
+- You may implement DCP, ship the schemas, and build products on it under
   Apache-2.0; keep the `LICENSE`/`NOTICE` terms.
 - You may quote or translate the spec under CC-BY-4.0 with attribution, e.g.:
-  *"Project Coordination Protocol (PCP) specification, © 2026 The PCP authors,
+  *"Development Coordination Protocol (DCP) specification, © 2026 The DCP authors,
   licensed under CC BY 4.0."*
 
 ## Contributions

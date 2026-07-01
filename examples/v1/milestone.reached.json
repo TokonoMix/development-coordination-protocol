@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_01HZ0MILESTONE001",
   "message_type": "milestone.reached",
   "issued_at": "2026-06-29T13:00:00Z",
@@ -9,10 +9,10 @@
     "verb": "reached",
     "entity_id": "milestone_v1_schemas",
     "occurred_at": "2026-06-29T12:55:00Z",
-    "attributed_to": "pcp-working-group",
+    "attributed_to": "dcp-working-group",
     "entity": {
       "id": "milestone_v1_schemas",
-      "project_id": "project_pcp",
+      "project_id": "project_dcp",
       "name": "v1 schemas complete",
       "description": "All envelope, event, and entity schemas authored and validating.",
       "status": "reached",

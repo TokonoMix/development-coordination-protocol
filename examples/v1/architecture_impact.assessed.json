@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_01HZ0ARCHASSESS01",
   "message_type": "architecture_impact.assessed",
   "issued_at": "2026-06-29T10:10:00Z",
@@ -13,8 +13,8 @@
       "id": "arch_envelope_split",
       "subject_ref": "decision_thin_envelope",
       "impact_level": "moderate",
-      "affected_areas": ["pcp-message", "event"],
-      "description": "Keeping the PCP envelope thin (semantics only) preserves the transport/semantic layering invariant.",
+      "affected_areas": ["dcp-message", "event"],
+      "description": "Keeping the DCP envelope thin (semantics only) preserves the transport/semantic layering invariant.",
       "migration_notes": "None; this is the initial v1 design."
     }
   }

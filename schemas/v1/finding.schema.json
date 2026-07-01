@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/finding.schema.json",
-  "title": "PCP Finding",
+  "$id": "https://schemas.devcopro.org/v1/finding.schema.json",
+  "title": "DCP Finding",
   "description": "A stated finding (issue, observation, risk) about a subject. Descriptive only.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "subject_ref", "severity", "title", "status"],
   "properties": {
-    "id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
-    "subject_ref": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
+    "subject_ref": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "severity": {
       "description": "Ordered vocabulary (low to high): info, low, medium, high, critical. Tolerate-and-pass unknown values.",
       "type": "string",
@@ -39,6 +39,6 @@
       "pattern": "^[a-z][a-z_]*$",
       "maxLength": 64
     },
-    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+    "extensions": { "$ref": "https://schemas.devcopro.org/v1/common/extensions.schema.json" }
   }
 }

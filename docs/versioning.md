@@ -1,11 +1,11 @@
 # Versioning
 
-PCP uses Semantic Versioning at the protocol level. The goal is a long-lived
+DCP uses Semantic Versioning at the protocol level. The goal is a long-lived
 standard where old messages stay valid.
 
 ## Where the version lives
 
-- `pcp_version` (e.g. `"1.0"`) is in every envelope. Parse it as **two integers**
+- `dcp_version` (e.g. `"1.0"`) is in every envelope. Parse it as **two integers**
   (`major`, `minor`) — never as a float, or `1.10` would sort below `1.9`.
 - Schemas are namespaced by **major** version in their `$id`
   (`…/v1/task.schema.json`) and on disk (`schemas/v1/`).
@@ -41,6 +41,6 @@ Breaking changes ship as `v2` under a new namespace (`schemas/v2/`,
 
 ## The `$id` host
 
-`https://schemas.project-coordination-protocol.org/v1/…` is a placeholder that
+`https://schemas.devcopro.org/v1/…` is a placeholder that
 implies no domain ownership. It is stable for this draft and will be confirmed or
 rebased at the v1.0 freeze; rebasing is a mechanical, non-semantic change.

@@ -15,7 +15,7 @@ const ajv = buildValidator();
 for (const c of manifest.cases) {
   test(`conformance ${c.file} → ${c.expect}`, () => {
     const value = JSON.parse(readFileSync(join(CONF, c.file), "utf8"));
-    const result = c.schema === "pcp-message"
+    const result = c.schema === "dcp-message"
       ? validateMessage(value, ajv)
       : validateAgainst(c.schema, value, ajv);
     const expectedValid = c.expect === "accept";

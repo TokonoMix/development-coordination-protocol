@@ -1,9 +1,9 @@
-// PCP reference validator (Apache-2.0).
+// DCP reference validator (Apache-2.0).
 //
-// Tooling only — the PCP schemas are language-neutral JSON Schema 2020-12; this
+// Tooling only — the DCP schemas are language-neutral JSON Schema 2020-12; this
 // Node/Ajv validator is a convenience reference implementation, not a runtime
-// dependency of PCP. It (1) validates a value against any PCP v1 schema by name
-// or $id, (2) validates a full PcpMessage, and (3) enforces the one normative
+// dependency of DCP. It (1) validates a value against any DCP v1 schema by name
+// or $id, (2) validates a full DcpMessage, and (3) enforces the one normative
 // cross-field rule JSON Schema cannot express: message_type === "<entity_type>.<verb>".
 
 import { readFileSync, readdirSync, statSync } from "node:fs";
@@ -14,8 +14,8 @@ import addFormats from "ajv-formats";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SCHEMA_DIR = join(HERE, "..", "schemas", "v1");
-const BASE = "https://schemas.project-coordination-protocol.org/v1/";
-export const MESSAGE_SCHEMA_ID = BASE + "pcp-message.schema.json";
+const BASE = "https://schemas.devcopro.org/v1/";
+export const MESSAGE_SCHEMA_ID = BASE + "dcp-message.schema.json";
 
 function collectSchemaFiles(dir) {
   const out = [];
@@ -27,7 +27,7 @@ function collectSchemaFiles(dir) {
   return out;
 }
 
-/** Build an Ajv instance with every PCP v1 schema registered by its $id. */
+/** Build an Ajv instance with every DCP v1 schema registered by its $id. */
 export function buildValidator() {
   const ajv = new Ajv2020({ allErrors: true, strict: false });
   addFormats(ajv);
@@ -44,11 +44,11 @@ export function resolveSchemaId(nameOrId) {
   return `${BASE}${base}.schema.json`;
 }
 
-/** Validate a value against a named/$id'd PCP schema. */
+/** Validate a value against a named/$id'd DCP schema. */
 export function validateAgainst(nameOrId, value, ajv = buildValidator()) {
   const id = resolveSchemaId(nameOrId);
   const validate = ajv.getSchema(id);
-  if (!validate) throw new Error(`Unknown PCP schema: ${nameOrId} (${id})`);
+  if (!validate) throw new Error(`Unknown DCP schema: ${nameOrId} (${id})`);
   const valid = validate(value);
   return { valid, errors: valid ? [] : (validate.errors || []) };
 }
@@ -61,7 +61,7 @@ export function checkMessageTypeConsistency(message) {
     if (message.message_type !== expected) {
       errors.push({
         instancePath: "/message_type",
-        keyword: "pcp:messageTypeConsistency",
+        keyword: "dcp:messageTypeConsistency",
         message: `message_type "${message.message_type}" must equal "<entity_type>.<verb>" = "${expected}"`,
       });
     }
@@ -69,7 +69,7 @@ export function checkMessageTypeConsistency(message) {
   return errors;
 }
 
-/** Validate a full PcpMessage: schema + the cross-field consistency rule. */
+/** Validate a full DcpMessage: schema + the cross-field consistency rule. */
 export function validateMessage(message, ajv = buildValidator()) {
   const schemaResult = validateAgainst(MESSAGE_SCHEMA_ID, message, ajv);
   const crossErrors = checkMessageTypeConsistency(message);

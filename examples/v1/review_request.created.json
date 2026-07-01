@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_01HZ0REVIEWREQ001",
   "message_type": "review_request.created",
   "issued_at": "2026-06-29T10:15:00Z",
@@ -9,7 +9,7 @@
     "entity_type": "review_request",
     "verb": "created",
     "entity_id": "review_envelope_design",
-    "attributed_to": "pcp-working-group",
+    "attributed_to": "dcp-working-group",
     "entity": {
       "id": "review_envelope_design",
       "subject_ref": "decision_thin_envelope",

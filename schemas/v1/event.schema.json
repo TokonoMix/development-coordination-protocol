@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/event.schema.json",
-  "title": "PCP Event",
-  "description": "The canonical change wrapper inside PCP. Every PcpMessage body is exactly one Event describing a change to one entity. PCP communicates project CHANGES, not raw records. An Event carries at least one of: a full 'entity' snapshot, a 'delta', or 'refs'.",
+  "$id": "https://schemas.devcopro.org/v1/event.schema.json",
+  "title": "DCP Event",
+  "description": "The canonical change wrapper inside DCP. Every DcpMessage body is exactly one Event describing a change to one entity. DCP communicates project CHANGES, not raw records. An Event carries at least one of: a full 'entity' snapshot, a 'delta', or 'refs'.",
   "type": "object",
   "additionalProperties": false,
   "required": ["event_id", "entity_type", "verb", "entity_id"],
   "properties": {
-    "event_id": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json" },
+    "event_id": { "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json" },
     "entity_type": {
       "description": "The kind of entity this event concerns. Closed set in v1 (the eight canonical nouns).",
       "type": "string",
@@ -29,16 +29,16 @@
       "maxLength": 64
     },
     "entity_id": {
-      "description": "Id of the affected entity. Self-asserted: PCP gives NO referential-integrity guarantee and ids are NOT guaranteed globally unique across independent producers. Scoping is the consumer's responsibility via transport context, not via this field.",
-      "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json"
+      "description": "Id of the affected entity. Self-asserted: DCP gives NO referential-integrity guarantee and ids are NOT guaranteed globally unique across independent producers. Scoping is the consumer's responsibility via transport context, not via this field.",
+      "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json"
     },
     "project_id": {
       "description": "Optional, untrusted scope hint indicating the project the entity belongs to.",
-      "$ref": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json"
+      "$ref": "https://schemas.devcopro.org/v1/common/id.schema.json"
     },
     "occurred_at": {
-      "description": "When the change actually happened (as opposed to PcpMessage.issued_at = when the message was composed).",
-      "$ref": "https://schemas.project-coordination-protocol.org/v1/common/timestamp.schema.json"
+      "description": "When the change actually happened (as opposed to DcpMessage.issued_at = when the message was composed).",
+      "$ref": "https://schemas.devcopro.org/v1/common/timestamp.schema.json"
     },
     "attributed_to": {
       "description": "Free-form opaque provenance label of who/what is said to have made the change. UNTRUSTED, non-authoritative, NOT an identity assertion, grants nothing. MUST NOT carry a 'scheme:value' identity structure.",
@@ -67,9 +67,9 @@
       "description": "Optional semantic links to related entities or external references.",
       "type": "array",
       "maxItems": 100,
-      "items": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/ref.schema.json" }
+      "items": { "$ref": "https://schemas.devcopro.org/v1/common/ref.schema.json" }
     },
-    "extensions": { "$ref": "https://schemas.project-coordination-protocol.org/v1/common/extensions.schema.json" }
+    "extensions": { "$ref": "https://schemas.devcopro.org/v1/common/extensions.schema.json" }
   },
   "anyOf": [
     { "required": ["entity"] },
@@ -79,35 +79,35 @@
   "allOf": [
     {
       "if": { "required": ["entity"], "properties": { "entity_type": { "const": "project" } } },
-      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/project.schema.json" } } }
+      "then": { "properties": { "entity": { "$ref": "https://schemas.devcopro.org/v1/project.schema.json" } } }
     },
     {
       "if": { "required": ["entity"], "properties": { "entity_type": { "const": "task" } } },
-      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/task.schema.json" } } }
+      "then": { "properties": { "entity": { "$ref": "https://schemas.devcopro.org/v1/task.schema.json" } } }
     },
     {
       "if": { "required": ["entity"], "properties": { "entity_type": { "const": "dependency" } } },
-      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/dependency.schema.json" } } }
+      "then": { "properties": { "entity": { "$ref": "https://schemas.devcopro.org/v1/dependency.schema.json" } } }
     },
     {
       "if": { "required": ["entity"], "properties": { "entity_type": { "const": "architecture_impact" } } },
-      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/architecture-impact.schema.json" } } }
+      "then": { "properties": { "entity": { "$ref": "https://schemas.devcopro.org/v1/architecture-impact.schema.json" } } }
     },
     {
       "if": { "required": ["entity"], "properties": { "entity_type": { "const": "decision" } } },
-      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/decision.schema.json" } } }
+      "then": { "properties": { "entity": { "$ref": "https://schemas.devcopro.org/v1/decision.schema.json" } } }
     },
     {
       "if": { "required": ["entity"], "properties": { "entity_type": { "const": "review_request" } } },
-      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/review-request.schema.json" } } }
+      "then": { "properties": { "entity": { "$ref": "https://schemas.devcopro.org/v1/review-request.schema.json" } } }
     },
     {
       "if": { "required": ["entity"], "properties": { "entity_type": { "const": "finding" } } },
-      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/finding.schema.json" } } }
+      "then": { "properties": { "entity": { "$ref": "https://schemas.devcopro.org/v1/finding.schema.json" } } }
     },
     {
       "if": { "required": ["entity"], "properties": { "entity_type": { "const": "milestone" } } },
-      "then": { "properties": { "entity": { "$ref": "https://schemas.project-coordination-protocol.org/v1/milestone.schema.json" } } }
+      "then": { "properties": { "entity": { "$ref": "https://schemas.devcopro.org/v1/milestone.schema.json" } } }
     }
   ]
 }

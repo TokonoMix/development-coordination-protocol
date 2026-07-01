@@ -1,11 +1,11 @@
 # Extensions
 
-The PCP core never grows new top-level fields. When you need to attach
+The DCP core never grows new top-level fields. When you need to attach
 vendor-specific or experimental data, use the `extensions` object.
 
 ## Where extensions are allowed
 
-On the envelope (`PcpMessage`), on the `Event`, and on every entity. Each is an
+On the envelope (`DcpMessage`), on the `Event`, and on every entity. Each is an
 optional object.
 
 ## Rules
@@ -25,7 +25,7 @@ optional object.
 
 ```json
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_abc",
   "message_type": "project.snapshot",
   "issued_at": "2026-06-29T10:00:00Z",

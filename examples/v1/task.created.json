@@ -1,5 +1,5 @@
 {
-  "pcp_version": "1.0",
+  "dcp_version": "1.0",
   "message_id": "msg_01HZ0TASKCREATED1",
   "message_type": "task.created",
   "issued_at": "2026-06-29T10:01:00Z",
@@ -12,8 +12,8 @@
     "attributed_to": "agent-builder",
     "entity": {
       "id": "task_schema_validation",
-      "project_id": "project_pcp",
-      "title": "Implement PCP schema validation",
+      "project_id": "project_dcp",
+      "title": "Implement DCP schema validation",
       "description": "Author the JSON Schema 2020-12 documents for the envelope, event, and eight entities.",
       "status": "todo",
       "priority": "high"

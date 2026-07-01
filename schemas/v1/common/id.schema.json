@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.project-coordination-protocol.org/v1/common/id.schema.json",
-  "title": "PCP Identifier",
-  "description": "An opaque, globally-unique PCP identifier. The prefix (e.g. 'task_') denotes a readability/category only and carries NO authority. Consumers MUST NOT derive any meaning from an id beyond its prefix category, and MUST treat the id as an atomic string.",
+  "$id": "https://schemas.devcopro.org/v1/common/id.schema.json",
+  "title": "DCP Identifier",
+  "description": "An opaque, globally-unique DCP identifier. The prefix (e.g. 'task_') denotes a readability/category only and carries NO authority. Consumers MUST NOT derive any meaning from an id beyond its prefix category, and MUST treat the id as an atomic string.",
   "type": "string",
   "pattern": "^[a-z]+_[A-Za-z0-9._-]+$",
   "minLength": 3,
