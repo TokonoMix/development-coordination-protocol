@@ -8,6 +8,9 @@ follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- **Froze the schema `$id` host** (SPEC §10.1): `https://schemas.devcopro.org/v1/…` is now the
+  canonical, permanent v1 namespace (domain owned), served as `application/schema+json`. Removed
+  the "placeholder / may be rebased at v1.0 freeze" reservation.
 - **Renamed** from "Project Coordination Protocol (PCP)" to **Development Coordination
   Protocol (DCP)** while still in draft, before the v1.0.0 freeze. This renames the
   wire-level identifiers (`DcpMessage`, `dcp_version`), the schema `$id` namespace
