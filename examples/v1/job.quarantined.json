@@ -24,11 +24,11 @@
     ],
     "extensions": {
       "x-agentsweaver": {
-        "quarantine_reason": "requeue_death",
-        "attempt": 3
+        "attempt": 3,
+        "quarantine_reason": "poison_pill"
       }
     },
     "occurred_at": "2026-07-03T06:32:56Z"
   },
-  "correlation_id": "msg_aw_01JZK0001"
+  "correlation_id": "msg_aw_01JZK0000"
 }

@@ -127,7 +127,7 @@
       "file": "valid/job-requeued-same-entity.json",
       "schema": "dcp-message",
       "expect": "accept",
-      "note": "Job-lifecycle (x-agentsweaver): open verb 'requeued' on a stable entity_id; delta status failed->open is a retry, ordered by the normative x-agentsweaver.attempt counter."
+      "note": "Job-lifecycle (x-agentsweaver): open verb 'requeued' on a stable entity_id; delta status leased->open is a retry (lease expiry or operator retry), ordered by the emitter-maintained monotonic x-agentsweaver.attempt counter."
     },
     {
       "file": "invalid/job-mismatch-open-verb.json",

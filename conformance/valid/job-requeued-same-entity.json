@@ -3,7 +3,7 @@
   "message_id": "msg_aw_01JZK0007",
   "message_type": "task.requeued",
   "issued_at": "2026-07-03T06:34:00Z",
-  "correlation_id": "msg_aw_01JZK0004",
+  "correlation_id": "msg_aw_01JZK0000",
   "body": {
     "event_id": "evt_aw_01JZK0007",
     "entity_type": "task",
@@ -14,7 +14,7 @@
     "attributed_to": "aw-job-broker",
     "delta": {
       "status": {
-        "from": "failed",
+        "from": "leased",
         "to": "open"
       },
       "responsible_party": {

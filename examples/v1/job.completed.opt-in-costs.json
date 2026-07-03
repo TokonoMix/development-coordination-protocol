@@ -14,7 +14,7 @@
     "delta": {
       "status": {
         "from": "leased",
-        "to": "completed"
+        "to": "done"
       }
     },
     "extensions": {

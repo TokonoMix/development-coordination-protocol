@@ -7,7 +7,7 @@
     "event_id": "evt_aw_01JZK0004",
     "entity_type": "task",
     "verb": "failed",
-    "entity_id": "task_awjob_8b2d1a",
+    "entity_id": "task_awjob_e77b21",
     "project_id": "project_aw_tokonomix_rail",
     "attributed_to": "worker_tokonomix_w04",
     "delta": {
@@ -19,10 +19,11 @@
     "extensions": {
       "x-agentsweaver": {
         "failure_class": "worker_timeout",
-        "attempt": 2
+        "attempt": 2,
+        "note": "generic fail-path pattern; AgentsWeaver does not emit task.failed today (no failed status in its broker) \u2014 kept for rails that have an explicit fail path"
       }
     },
     "occurred_at": "2026-07-03T06:30:55Z"
   },
-  "correlation_id": "msg_aw_01JZK0001"
+  "correlation_id": "msg_aw_01JZK0200"
 }
