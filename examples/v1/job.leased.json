@@ -1,0 +1,32 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_01JZK0002",
+  "message_type": "task.leased",
+  "issued_at": "2026-07-03T06:21:00Z",
+  "correlation_id": "msg_aw_01JZK0001",
+  "body": {
+    "event_id": "evt_aw_01JZK0002",
+    "entity_type": "task",
+    "verb": "leased",
+    "entity_id": "task_awjob_7f3a9c",
+    "project_id": "project_aw_tokonomix_rail",
+    "attributed_to": "worker_tokonomix_w17",
+    "delta": {
+      "status": {
+        "from": "open",
+        "to": "leased"
+      },
+      "responsible_party": {
+        "to": "worker_tokonomix_w17"
+      }
+    },
+    "extensions": {
+      "x-agentsweaver": {
+        "lease_expires_at": "2026-07-03T06:36:00Z",
+        "note": "descriptive only; the broker DB is authoritative for lease state",
+        "attempt": 1
+      }
+    },
+    "occurred_at": "2026-07-03T06:20:58Z"
+  }
+}

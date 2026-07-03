@@ -51,3 +51,22 @@ If many independent vendors converge on the same extension and it is genuinely
 descriptive project-coordination metadata, propose promoting it to an optional
 core field via the process in `../GOVERNANCE.md`. Promotion is additive (a minor
 version); the extension form keeps working.
+
+## Known extension namespaces
+
+Registration is intentionally light — cf. how CloudEvents documents extension attributes: a PR
+against this table documents a namespace; it does not approve it. The table signals name
+collisions (it cannot prevent them — DCP has no registration authority, consistent with the prime
+directive). A namespace's content is vendor-owned and non-normative for DCP core; value
+documentation and change policy belong to the owner. Promotion of a vendor verb or field into the
+core spec remains the heavyweight `GOVERNANCE.md` path, considered once **two or more independent
+vendors** converge on the same semantics (additive, minor version).
+
+| namespace | owner | reference | status | since |
+|---|---|---|---|---|
+| `x-agentsweaver` | AgentsWeaver project | `examples/v1/job.*.json` + the job-lifecycle how-to on devcopro.org | experimental | 2026-07-03 |
+
+For `x-agentsweaver`, the documented vocabulary (settle_state, failure_class, quarantine_reason,
+requeue_reason, attempt) is **normative for events emitted by AgentsWeaver**: consumers may rely on
+the documented keys and value semantics when reading that namespace. New values remain non-breaking
+(open tokens); consumers tolerate unknown values as always.

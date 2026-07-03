@@ -1,0 +1,29 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_01JZK0003",
+  "message_type": "task.completed",
+  "issued_at": "2026-07-03T06:31:00Z",
+  "correlation_id": "msg_aw_01JZK0001",
+  "body": {
+    "event_id": "evt_aw_01JZK0003",
+    "entity_type": "task",
+    "verb": "completed",
+    "entity_id": "task_awjob_7f3a9c",
+    "project_id": "project_aw_tokonomix_rail",
+    "attributed_to": "worker_tokonomix_w17",
+    "delta": {
+      "status": {
+        "from": "leased",
+        "to": "completed"
+      }
+    },
+    "extensions": {
+      "x-agentsweaver": {
+        "receipt_ref": "receipt_aw_5c22e1",
+        "settle_state": "settled",
+        "attempt": 1
+      }
+    },
+    "occurred_at": "2026-07-03T06:30:57Z"
+  }
+}

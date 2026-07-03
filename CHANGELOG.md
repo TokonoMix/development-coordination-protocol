@@ -6,6 +6,19 @@ follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **First external consumer agreement: AgentsWeaver job-lifecycle events** (ratified 2026-07-03
+  after a two-round multi-model review). Nine worked examples (`examples/v1/job.*.json`) mapping a
+  job broker onto `task` events with a stable `entity_id`, open verbs (`leased`, `requeued`,
+  `quarantined`, …), star-shaped `derived_from` lineage for resubmissions, and the
+  `x-agentsweaver` extension namespace (first entry in the new extension-namespace registry in
+  `docs/extensions.md`). Five new conformance cases (1 accept / 4 reject) covering the §4.1 rule on
+  open verbs, extension hygiene, and delta leaf constraints.
+- **Producer-confidentiality section in `SECURITY.md`** (normative): no secrets/PII in free-text
+  fields, amounts only via transport-restricted channels, opaque non-enumerable reference ids,
+  no authority-bearing tokens on shared streams.
+
 ### Changed
 
 - **Froze the schema `$id` host** (SPEC §10.1): `https://schemas.devcopro.org/v1/…` is now the

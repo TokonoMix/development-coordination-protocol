@@ -122,6 +122,36 @@
       "schema": "dcp-message",
       "expect": "reject",
       "note": "message_type must be '<entity>.<verb>'."
+    },
+    {
+      "file": "valid/job-requeued-same-entity.json",
+      "schema": "dcp-message",
+      "expect": "accept",
+      "note": "Job-lifecycle (x-agentsweaver): open verb 'requeued' on a stable entity_id; delta status failed->open is a retry, ordered by the normative x-agentsweaver.attempt counter."
+    },
+    {
+      "file": "invalid/job-mismatch-open-verb.json",
+      "schema": "dcp-message",
+      "expect": "reject",
+      "note": "message_type/body.verb mismatch on an OPEN verb (task.leased vs assigned) \u2014 the 4.1 rule applies beyond the controlled vocabulary."
+    },
+    {
+      "file": "invalid/job-lease-field-toplevel.json",
+      "schema": "dcp-message",
+      "expect": "reject",
+      "note": "Rail mechanics (fence_token) as a top-level Event field instead of inside x-<vendor> extensions \u2014 additionalProperties:false rejects."
+    },
+    {
+      "file": "invalid/job-extension-no-prefix.json",
+      "schema": "dcp-message",
+      "expect": "reject",
+      "note": "Extension key without the x- prefix."
+    },
+    {
+      "file": "invalid/job-delta-nested-object.json",
+      "schema": "dcp-message",
+      "expect": "reject",
+      "note": "Delta leaf must be scalar or null; nested object rejected (job-lifecycle variant of the existing rule)."
     }
   ]
 }

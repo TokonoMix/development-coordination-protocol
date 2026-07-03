@@ -1,0 +1,22 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_01JZK0005",
+  "message_type": "task.cancelled",
+  "issued_at": "2026-07-03T06:32:00Z",
+  "body": {
+    "event_id": "evt_aw_01JZK0005",
+    "entity_type": "task",
+    "verb": "cancelled",
+    "entity_id": "task_awjob_9c4e2b",
+    "project_id": "project_aw_tokonomix_rail",
+    "attributed_to": "aw-operator",
+    "delta": {
+      "status": {
+        "from": "open",
+        "to": "cancelled"
+      }
+    },
+    "occurred_at": "2026-07-03T06:31:57Z"
+  },
+  "correlation_id": "msg_aw_01JZK0001"
+}

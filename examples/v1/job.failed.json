@@ -1,0 +1,28 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_01JZK0004",
+  "message_type": "task.failed",
+  "issued_at": "2026-07-03T06:31:00Z",
+  "body": {
+    "event_id": "evt_aw_01JZK0004",
+    "entity_type": "task",
+    "verb": "failed",
+    "entity_id": "task_awjob_8b2d1a",
+    "project_id": "project_aw_tokonomix_rail",
+    "attributed_to": "worker_tokonomix_w04",
+    "delta": {
+      "status": {
+        "from": "leased",
+        "to": "failed"
+      }
+    },
+    "extensions": {
+      "x-agentsweaver": {
+        "failure_class": "worker_timeout",
+        "attempt": 2
+      }
+    },
+    "occurred_at": "2026-07-03T06:30:55Z"
+  },
+  "correlation_id": "msg_aw_01JZK0001"
+}

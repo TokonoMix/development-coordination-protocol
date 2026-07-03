@@ -1,0 +1,13 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_bad_0001",
+  "message_type": "task.leased",
+  "issued_at": "2026-07-03T06:21:00Z",
+  "body": {
+    "event_id": "evt_aw_bad_0001",
+    "entity_type": "task",
+    "verb": "assigned",
+    "entity_id": "task_awjob_7f3a9c",
+    "delta": { "status": { "to": "leased" } }
+  }
+}

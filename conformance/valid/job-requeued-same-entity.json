@@ -1,0 +1,31 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_01JZK0007",
+  "message_type": "task.requeued",
+  "issued_at": "2026-07-03T06:34:00Z",
+  "correlation_id": "msg_aw_01JZK0004",
+  "body": {
+    "event_id": "evt_aw_01JZK0007",
+    "entity_type": "task",
+    "verb": "requeued",
+    "entity_id": "task_awjob_8b2d1a",
+    "project_id": "project_aw_tokonomix_rail",
+    "occurred_at": "2026-07-03T06:33:57Z",
+    "attributed_to": "aw-job-broker",
+    "delta": {
+      "status": {
+        "from": "failed",
+        "to": "open"
+      },
+      "responsible_party": {
+        "to": null
+      }
+    },
+    "extensions": {
+      "x-agentsweaver": {
+        "attempt": 2,
+        "requeue_reason": "lease_expired"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_01JZK0008",
+  "message_type": "task.created",
+  "issued_at": "2026-07-03T06:34:00Z",
+  "body": {
+    "event_id": "evt_aw_01JZK0008",
+    "entity_type": "task",
+    "verb": "created",
+    "entity_id": "task_awjob_c91f04",
+    "project_id": "project_aw_tokonomix_rail",
+    "attributed_to": "aw-job-broker",
+    "entity": {
+      "id": "task_awjob_c91f04",
+      "project_id": "project_aw_tokonomix_rail",
+      "title": "Resubmission of quarantined job: summarize corpus batch 41",
+      "status": "open"
+    },
+    "refs": [
+      {
+        "rel": "derived_from",
+        "ref": "task_awjob_8b2d1a"
+      }
+    ],
+    "occurred_at": "2026-07-03T06:33:57Z",
+    "extensions": {
+      "x-agentsweaver": {
+        "resubmission_of": "task_awjob_8b2d1a"
+      }
+    }
+  }
+}

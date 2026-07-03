@@ -91,3 +91,20 @@ live endpoints. To report a security issue in the specification or the reference
 tooling, email **security@devcopro.org** with a description
 and, if possible, a minimal reproducing message. Please use coordinated
 disclosure and allow reasonable time for a fix before public disclosure.
+
+## Producer confidentiality (normative)
+
+The rules above are consumer-defensive; this section binds **producers**. A DCP producer MUST
+assume every emitted event is visible to every consumer within the transport scope.
+
+- Producers MUST NOT place secrets, credentials, or personal data in free-text fields
+  (`title`, `description`, extension values). Sensitive prompt or content material SHOULD be
+  redacted or replaced by an opaque reference that resolves only through an authorized channel.
+- Monetary amounts MUST be shared through a transport-restricted channel, never guarded merely by
+  a descriptive marker field on a shared stream.
+- Reference identifiers that leave the producer (e.g. receipt references) MUST be opaque and
+  non-enumerable (no sequence numbers or timestamp-derived values).
+- Extension fields that mirror internal concurrency or lease state (fence/version tokens, lease
+  expiries) are descriptive; a consumer MUST NOT use them as locking, scheduling, or settlement
+  authority — and producers SHOULD omit tokens whose only possible consumer use would be exactly
+  that (e.g. fencing tokens).

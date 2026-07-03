@@ -1,0 +1,34 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_01JZK0006",
+  "message_type": "task.quarantined",
+  "issued_at": "2026-07-03T06:33:00Z",
+  "body": {
+    "event_id": "evt_aw_01JZK0006",
+    "entity_type": "task",
+    "verb": "quarantined",
+    "entity_id": "task_awjob_8b2d1a",
+    "project_id": "project_aw_tokonomix_rail",
+    "attributed_to": "aw-job-broker",
+    "delta": {
+      "status": {
+        "from": "leased",
+        "to": "quarantined"
+      }
+    },
+    "refs": [
+      {
+        "rel": "caused_by",
+        "ref": "finding_aw_poison_8b2d1a"
+      }
+    ],
+    "extensions": {
+      "x-agentsweaver": {
+        "quarantine_reason": "requeue_death",
+        "attempt": 3
+      }
+    },
+    "occurred_at": "2026-07-03T06:32:56Z"
+  },
+  "correlation_id": "msg_aw_01JZK0001"
+}

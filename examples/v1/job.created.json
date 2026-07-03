@@ -1,0 +1,28 @@
+{
+  "dcp_version": "1.0",
+  "message_id": "msg_aw_01JZK0001",
+  "message_type": "task.created",
+  "issued_at": "2026-07-03T06:20:00Z",
+  "body": {
+    "event_id": "evt_aw_01JZK0001",
+    "entity_type": "task",
+    "verb": "created",
+    "entity_id": "task_awjob_7f3a9c",
+    "project_id": "project_aw_tokonomix_rail",
+    "attributed_to": "aw-job-intake",
+    "entity": {
+      "id": "task_awjob_7f3a9c",
+      "project_id": "project_aw_tokonomix_rail",
+      "title": "Summarize corpus batch 42",
+      "status": "open",
+      "extensions": {
+        "x-agentsweaver": {
+          "job_kind": "llm_batch",
+          "reservation_id": "resv_9d1e2f",
+          "max_cost_micros": 250000
+        }
+      }
+    },
+    "occurred_at": "2026-07-03T06:19:58Z"
+  }
+}
