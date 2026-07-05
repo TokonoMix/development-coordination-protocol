@@ -1,0 +1,33 @@
+{
+  "messageId": "a2a-8c2f6e1d-5b0a-4f3e-9d47-1c2b3a4d5e6f",
+  "role": "ROLE_AGENT",
+  "extensions": [
+    "https://devcopro.org/a2a/dcp/v1"
+  ],
+  "parts": [
+    {
+      "data": {
+        "dcp_version": "1.0",
+        "message_id": "msg_01HZ0TASKDONE0001",
+        "message_type": "task.completed",
+        "issued_at": "2026-06-29T12:30:00Z",
+        "correlation_id": "msg_01HZ0TASKCREATED1",
+        "body": {
+          "event_id": "evt_01HZ0TASKDONE0001",
+          "entity_type": "task",
+          "verb": "completed",
+          "entity_id": "task_schema_validation",
+          "occurred_at": "2026-06-29T12:29:30Z",
+          "attributed_to": "agent-builder",
+          "delta": {
+            "status": {
+              "from": "in_progress",
+              "to": "completed"
+            }
+          }
+        }
+      },
+      "mediaType": "application/json"
+    }
+  ]
+}
