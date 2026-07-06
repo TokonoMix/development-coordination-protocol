@@ -5,8 +5,8 @@ existing rule; a bare `DcpMessage` (SPEC §4) remains the standalone form for tr
 carry raw JSON. This document defines the **first-class way to carry DCP on CloudEvents
 infrastructure** (CNCF CloudEvents 1.0).
 
-**Reviewed:** externe review r1–r3 + tokonomix-raad 2026-07-04 (unaniem op de kern;
-`datacontenttype`-keuze = raadsmeerderheid + judge). Mes-go 2026-07-06.
+**Provenance:** shaped by an external design review and an independent multi-model
+review round before publication (2026-07).
 
 ---
 

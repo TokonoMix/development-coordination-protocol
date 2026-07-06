@@ -88,7 +88,7 @@ nested-object parsing amplification.
 
 This repository is a protocol specification, not a running service; it lists no
 live endpoints. To report a security issue in the specification or the reference
-tooling, email **security@devcopro.org** with a description
+tooling, email **dcp@devcopro.org** with a description
 and, if possible, a minimal reproducing message. Please use coordinated
 disclosure and allow reasonable time for a fix before public disclosure.
 
